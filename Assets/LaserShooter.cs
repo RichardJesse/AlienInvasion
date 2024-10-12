@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class LaserShooter : MonoBehaviour
 {
-
     public float coolDown = 0f;
     public float fireRate = 0f;
-
+    public float laserSpeed = 20f;  // Speed at which the laser moves
 
     public bool isFiring = false;
 
@@ -18,9 +17,7 @@ public class LaserShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         isFiring = false;
-        
     }
 
     // Update is called once per frame
@@ -29,7 +26,7 @@ public class LaserShooter : MonoBehaviour
         checkInput();
         coolDown -= Time.deltaTime;
 
-        if(isFiring == true)
+        if (isFiring == true)
         {
             Fire();
         }
@@ -45,21 +42,29 @@ public class LaserShooter : MonoBehaviour
         {
             isFiring = false;
         }
-
     }
+
     void Fire()
     {
-        if(coolDown > 0)
+        if (coolDown > 0)
         {
             return;
         }
-         
-        if(fireSound != null)
+
+        if (fireSound != null)
         {
             fireSound.Play();
         }
 
-        GameObject.Instantiate(laser, FirePoint.position, FirePoint.rotation);
+        GameObject newLaser = Instantiate(laser, FirePoint.position, FirePoint.rotation);
+
+        
+        Rigidbody rb = newLaser.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            
+            rb.velocity = FirePoint.forward * laserSpeed;
+        }
 
         coolDown = fireRate;
     }
