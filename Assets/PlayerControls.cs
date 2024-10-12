@@ -11,6 +11,11 @@ public class PlayerControls : MonoBehaviour
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
 
+    private float rollInput;
+    public float rollSpeed = 90f, rollAcceleration = 3.5f;
+
+         
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +30,14 @@ public class PlayerControls : MonoBehaviour
         lookInput.x = Input.mousePosition.x;
         lookInput.y = Input.mousePosition.y;
 
-        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
+        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.y;
         mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
 
-        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
+        mouseDistance= Vector2.ClampMagnitude(mouseDistance, 1f);
+
+        rollInput = Mathf.Lerp(rollInput, Input.GetAxisRaw("Roll"), rollAcceleration * Time.deltaTime);
+
+        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, rollInput * rollSpeed * Time.deltaTime, Space.Self);
 
 
         activeForwardSpeed = Mathf.Lerp(activeForwardSpeed,  Input.GetAxisRaw("Vertical") * forwardSpeed, forwardAcceleration * Time.deltaTime);
