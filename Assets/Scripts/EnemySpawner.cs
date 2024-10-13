@@ -45,7 +45,15 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 directionTospaceship = Spaceship.position - spawnposition;
                 directionTospaceship.y = 0;
                 Quaternion lookRotation = Quaternion.LookRotation(directionTospaceship); 
-                spawnedAlien.rotation = lookRotation; 
+                spawnedAlien.rotation = lookRotation;
+
+                //call the shooting method
+                Alienshooter shooter = spawnedAlien.GetComponent<Alienshooter>();
+                if (shooter != null)
+                {
+                    shooter.ShootatSpaceship(Spaceship); // Call the shooting method here
+                }
+
 
 
                 //update the last spawn time
