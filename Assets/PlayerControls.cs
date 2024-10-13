@@ -7,12 +7,18 @@ public class PlayerControls : MonoBehaviour
     public float forwardSpeed = 25f, strafSpeed = 7.5f, hoverSpeed = 5f;
     private float activeForwardSpeed , activeStrafSpeed , activeHoverSpeed;
     private float forwardAcceleration = 2.5f, strafAcceleration = 2f, hoverAcceleration = 2f;
+    public int maxHealth = 100;
+    public int currentHealth;
+
 
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
 
     private float rollInput;
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
+
+    public HealthBar healthBar;
+
 
          
 
@@ -21,6 +27,8 @@ public class PlayerControls : MonoBehaviour
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
         
     }
 
@@ -32,6 +40,11 @@ public class PlayerControls : MonoBehaviour
 
         mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.y;
         mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Damage(10);
+        }
 
         mouseDistance= Vector2.ClampMagnitude(mouseDistance, 1f);
 
@@ -47,5 +60,11 @@ public class PlayerControls : MonoBehaviour
         transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
         transform.position += (transform.right * activeStrafSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
         
+    }
+
+    void Damage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 }
