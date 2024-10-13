@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/MainStory.unity
     guid: 1b3c34bcaa7f7fc4b876b806b532c1ab
   - enabled: 1
-    path: Assets/Demo_Scene_A.unity
+    path: Assets/Vast Outer Space/EXAMPLE/Demo_Scene_A.unity
     guid: 6c9e50774c896fd43a6fef673b9fd9df
   m_configObjects: {}
