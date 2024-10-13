@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3376238803532592301}
-  - component: {fileID: -4753589076225332683}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -33,18 +32,6 @@ Transform:
   - {fileID: 1738550200004779527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4753589076225332683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7744074120422311420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 682825343f9d3594887770ca3421480a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1742862420545466941
 PrefabInstance:
   m_ObjectHideFlags: 0
