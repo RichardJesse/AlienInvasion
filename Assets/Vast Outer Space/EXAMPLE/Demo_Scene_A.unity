@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 216363799}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   lookRateSpeed: 90
   rollSpeed: 0
   rollAcceleration: 3.5
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 263373665}
 --- !u!114 &216363798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   coolDown: 0
   fireRate: 0
   laserSpeed: 20
-  isFiring: 0
+  isFiring: 1
   FirePoint: {fileID: 1403720936}
   laser: {fileID: 1014241684}
   fireSound: {fileID: 216363799}
@@ -531,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 516, y: 296}
+  m_AnchoredPosition: {x: 329, y: 135.33}
   m_SizeDelta: {x: 302.22, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263373665
@@ -1356,6 +1356,7 @@ GameObject:
   - component: {fileID: 1014241686}
   - component: {fileID: 1014241685}
   - component: {fileID: 1014241689}
+  - component: {fileID: 1014241690}
   m_Layer: 7
   m_Name: Laser
   m_TagString: Untagged
@@ -1477,6 +1478,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1014241690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014241684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db431415f986c94e89bd4a7a4ccc380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeparticles: {fileID: 8838269451043034449, guid: 1f994f98d3bf79d4dba967d1c4a21ea8, type: 3}
 --- !u!1001 &1021059466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1536,6 +1550,10 @@ PrefabInstance:
     - target: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368916564331560363, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
+      propertyPath: m_TagString
+      value: Spaceship
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2647,7 +2665,7 @@ MonoBehaviour:
   lookRateSpeed: 90
   rollSpeed: 90
   rollAcceleration: 3.5
-  healthBar: {fileID: 263373665}
+  healthBar: {fileID: 0}
 --- !u!95 &2038113143
 Animator:
   serializedVersion: 5

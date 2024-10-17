@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    
     public float forwardSpeed = 25f, strafSpeed = 7.5f, hoverSpeed = 5f;
     private float activeForwardSpeed , activeStrafSpeed , activeHoverSpeed;
     private float forwardAcceleration = 2.5f, strafAcceleration = 2f, hoverAcceleration = 2f;
@@ -16,19 +17,20 @@ public class PlayerControls : MonoBehaviour
 
     private float rollInput;
     public float rollSpeed = 90f, rollAcceleration = 3.5f;
-
     public HealthBar healthBar;
 
 
-         
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
-        currentHealth = maxHealth;
-        healthBar.setMaxHealth(maxHealth);
+       currentHealth = maxHealth;
+       healthBar.setMaxHealth(maxHealth);
         
     }
 
@@ -43,7 +45,7 @@ public class PlayerControls : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Damage(10);
+            //Damage(10);
         }
 
         mouseDistance= Vector2.ClampMagnitude(mouseDistance, 1f);
@@ -62,9 +64,9 @@ public class PlayerControls : MonoBehaviour
         
     }
 
-    void Damage(int damage)
+   public void Damage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+       healthBar.SetHealth(currentHealth);
     }
 }
