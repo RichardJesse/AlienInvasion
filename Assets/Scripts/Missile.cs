@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
         }
         else
         {
-            Debug.Log("POLE");
+            //Debug.Log("POLE");
 
             if (collision.gameObject.CompareTag("Spaceship"))
             {
@@ -24,7 +24,7 @@ public class Missile : MonoBehaviour
                 if (playerControls != null)
                 {
                     // Call the Damage method to apply damage
-                    Debug.Log("damage");
+                   
                     playerControls.Damage(10);
                    
 

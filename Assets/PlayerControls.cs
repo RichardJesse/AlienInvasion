@@ -48,6 +48,10 @@ public class PlayerControls : MonoBehaviour
             //Damage(10);
         }
 
+        if(currentHealth <= 0)
+        {
+            Time.timeScale = 0;
+        }
         mouseDistance= Vector2.ClampMagnitude(mouseDistance, 1f);
 
         rollInput = Mathf.Lerp(rollInput, Input.GetAxisRaw("Roll"), rollAcceleration * Time.deltaTime);
